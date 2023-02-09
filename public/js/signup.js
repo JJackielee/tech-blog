@@ -17,7 +17,7 @@ document.querySelector("#signupForm").addEventListener("click",e=>{
         if(res.ok){
            location.href="/dashboard"
         } else {
-            alert("trumpet sound")
+            alert("Email already exist!")
         }
     })
 })

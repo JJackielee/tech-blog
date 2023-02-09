@@ -18,7 +18,7 @@ document.querySelector("#loginForm").addEventListener("click",e=>{
         if(res.ok){
            location.href="/dashboard"
         } else {
-            alert("trumpet sound")
+            alert("Wrong Login combination!")
         }
     })
 })

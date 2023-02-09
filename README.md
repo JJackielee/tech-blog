@@ -36,7 +36,7 @@ SESSION_SECRET='crypt key'
 - go to home page, click on the title of a blogpost to comment on a blogpost or view comments on the post
 
 
-[link to live page](https://drive.google.com/file/d/1uyE-WD1XdSZmj0IyS7aR22_9IhWb0n74/view)
+[link to live page](https://jackiestechblog.herokuapp.com)
 
 
 ## Credits
