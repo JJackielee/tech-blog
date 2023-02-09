@@ -10,6 +10,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 
+//creates a session
+
 const sess = {
     secret: process.env.SESSION_SECRET,
     cookie: {
@@ -30,22 +32,17 @@ app.use(session(sess));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+//uses static public folder
 app.use(express.static('public'));
 
 const hbs = exphbs.create({});
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-
+//uses routers
 app.use(allRoutes);
-// app.get("/",(req,res)=>{
-//     res.send("hello welcome to techblog!")
-// })
 
-app.get("/sessions",(req,res)=>{
-    res.json(req.session)
-})
-
+//starts the server and sequelize
 sequelize.sync({ force: false }).then(function() {
     app.listen(PORT, function() {
     console.log('App listening on PORT ' + PORT);

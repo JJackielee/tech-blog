@@ -1,3 +1,6 @@
+//listen to the button click and then sends a fetch POST request with passed in body data to create a new account in our database
+//then it redirects dashboard page
+
 document.querySelector("#signupForm").addEventListener("click",e=>{
     e.preventDefault();
     const signupObj = {
@@ -12,7 +15,7 @@ document.querySelector("#signupForm").addEventListener("click",e=>{
         }
     }).then(res=>{
         if(res.ok){
-           location.href="/"
+           location.href="/dashboard"
         } else {
             alert("trumpet sound")
         }

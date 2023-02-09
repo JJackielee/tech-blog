@@ -3,6 +3,8 @@ const router = express.Router();
 const {User} = require('../models');
 const bcrypt = require("bcrypt");
 
+
+//get route that gets all users in the database
 router.get("/",(req,res)=>{
     User.findAll().then(userData=>{
      res.json(userData)
@@ -12,11 +14,8 @@ router.get("/",(req,res)=>{
     })
  })
 
-router.get("/logout",(req,res)=>{
-    req.session.destroy();
-    res.send("logged out")
-})
-
+//get route that get the user at the indexed id
+//includes all the blog post this user has posted as well
 router.get("/:id",(req,res)=>{
     User.findByPk(req.params.id,{
         include:[Blog]
@@ -28,6 +27,7 @@ router.get("/:id",(req,res)=>{
     })
  })
 
+//post route that creates a new user and then adds id and email it into our session
 router.post("/",(req,res)=>{
     console.log(req.body);
     User.create({
@@ -44,6 +44,10 @@ router.post("/",(req,res)=>{
     })
 })
 
+//post route that login in user by finding the email first
+//checks if theres such email
+//if there is email it uses bcrypt to convert entered password and compares it to the password stored in data base
+//if it matches then it updates the session variables 
 router.post("/login",(req,res)=>{
     User.findOne({
     where:{

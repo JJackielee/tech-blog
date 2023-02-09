@@ -4,8 +4,10 @@ const bcrypt = require("bcrypt")
 
 class User extends Model {}
 
+//User model to create the table. uses bcrypt so whenever something is sent to the password. it hash it so it can be secured
+
 User.init({
-    // add properites here, ex:
+    
     email: {
          type: DataTypes.STRING,
          allowNull:false,

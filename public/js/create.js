@@ -1,3 +1,6 @@
+
+//listens to the button and sends a fetch post request to create a new blog post with body data
+//sends the user back to the dashboard afterwards
 document.querySelector("#createForm").addEventListener("click",e=>{
     e.preventDefault();
     const loginObj = {

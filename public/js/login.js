@@ -1,3 +1,6 @@
+//listens to the button click and then sends a fetch POST request with passed in data in the body
+//depending on what is sent back ( for verification ) it will either redirect to the dashboard  or stay at login because you got login
+//creditials incorrect
 document.querySelector("#loginForm").addEventListener("click",e=>{
     e.preventDefault();
     const loginObj = {
@@ -13,7 +16,7 @@ document.querySelector("#loginForm").addEventListener("click",e=>{
         }
     }).then(res=>{
         if(res.ok){
-           location.href="/"
+           location.href="/dashboard"
         } else {
             alert("trumpet sound")
         }

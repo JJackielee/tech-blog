@@ -13,6 +13,8 @@
             <br>
 
             <h4>Comments</h4>
+
+            {{!-- for each loop that display every comment that is tied to a blog post  --}}
             {{#each blog.Comments}}
             <div class="alert alert-warning">
                 {{text}} 
@@ -21,14 +23,18 @@
             </div>
             {{/each}}
             
+            {{!-- if statement to check if a user is logged in. if so it will display a form where users can comment on a post --}}
+            {{#if session.userId}}
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Add a Comment</label>
+                        <textarea class="form-control" id="createComment" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="postComment">Comment</button>
+                </form>
+            {{/if}}
 
-            <form>
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Add a Comment</label>
-                    <textarea class="form-control" id="createComment" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" id="postComment">Comment</button>
-            </form>
+
         </div>
     </div>
 </div>

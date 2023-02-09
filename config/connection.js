@@ -1,4 +1,5 @@
 require('dotenv').config();
+//creates the connection with sequelize using dotenv file
 const Sequelize = require('sequelize');
 
 let sequelize;
